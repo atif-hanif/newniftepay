@@ -69,7 +69,7 @@ window.addDashess = function addDashess(g) {
     g.value = npc + ' ' + nxy + ' ' + last4 + ' ' + last;
 }
 
-var card = document.querySelector('#card-no');
+var card = document.querySelector('#cardno');
 card.addEventListener('keyup', function(e) {
 	if (event.key != 'Backspace' && (card.value.length === 4 || card.value.length === 9 || card.value.length === 14)) {
   		card.value += ' ';
@@ -166,21 +166,63 @@ $('#cvv').bind('keypress', function (event) {
 
 // Bank Form
 
+function formatBank (bank) {
+	if (!bank.id) {
+	  return bank.text;
+	}
+	var baseUrl = "images/bank";
+	var $bank = $(
+	//   '<span><img src="' + baseUrl + '/' + bank.element.value.toLowerCase() + '.png" class="img-flag" /> ' + bank.text + '</span>'
+	'<span><img class="img-flag" /> <span></span></span>'
+	);
+	$bank.find("span").text(bank.text);
+  	$bank.find("img").attr("src", baseUrl + "/" + bank.element.value.toLowerCase() + ".png");
+	return $bank;
+};
+
+// $(".bank").select2({
+//  	templateResult: formatBank,
+//  	templateSelection: formatBank
+// });
+
+$(document).ready(function () {
+
+    $('.bank').on('change', function () {
+        $(this).valid();
+    });
+
+    $(".bank").select2({
+		templateResult: formatBank,
+		templateSelection: formatBank
+   	});
+
+    var validator = $("#bankForm").validate();
+
+});
+
 $(document).ready(function() {
 	// Custom method to validate username
-	$.validator.addMethod("usernameRegex", function(value, element) {
-		return this.optional(element) || /^[a-zA-Z0-9]*$/i.test(value);
-	}, "Username must contain only letters, numbers");
 	$(".next").click(function() {
 		var form = $("#bankForm");
 		form.validate({
-			errorElement: 'p',
+			errorElement: 'label',
 			errorClass: 'error',
 			highlight: function(element, errorClass, validClass) {
-				$(element).closest('.form-group').addClass("has-error");
+				//$(element).closest('.form-group').addClass("has-error");
+				$(element).parents('.form-control').removeClass('has-success').addClass('has-error');
 			},
 			unhighlight: function(element, errorClass, validClass) {
-				$(element).closest('.form-group').removeClass("has-error");
+				//$(element).closest('.form-group').removeClass("has-error");
+				$(element).parents('.form-control').removeClass('has-success').addClass('has-error');
+			},
+			errorPlacement: function (error, element) {
+				if (element.parent('.form-group').length) {
+					error.insertAfter(element.parent());
+				} else if (element.hasClass('select2')) {
+					error.insertAfter(element.next('span'));
+				} else {
+					error.insertAfter(element);
+				}
 			},
 			rules: {
 				bankaccount: {
@@ -230,28 +272,8 @@ $(document).ready(function() {
 	});
 });
 
-function formatBank (bank) {
-	if (!bank.id) {
-	  return bank.text;
-	}
-	var baseUrl = "images/bank";
-	var $bank = $(
-	//   '<span><img src="' + baseUrl + '/' + bank.element.value.toLowerCase() + '.png" class="img-flag" /> ' + bank.text + '</span>'
-	'<span><img class="img-flag" /> <span></span></span>'
-	);
-	$bank.find("span").text(bank.text);
-  	$bank.find("img").attr("src", baseUrl + "/" + bank.element.value.toLowerCase() + ".png");
-	return $bank;
-};
-
-$(".bank").select2({
-	templateResult: formatBank,
-	templateSelection: formatBank
-});
 
 // Wallet Bank
-
-$("#walletForm").validate();
 
 function formatWallet (wallet) {
 	if (!wallet.id) {
@@ -267,10 +289,46 @@ function formatWallet (wallet) {
 	return $wallet;
 };
 
-$(".vendor").select2({
-	templateResult: formatWallet,
-	templateSelection: formatWallet
+// $(".vendor").select2({
+// 	templateResult: formatWallet,
+// 	templateSelection: formatWallet
+// });
+
+$(document).ready(function () {
+
+    $('.vendor').on('change', function () {
+        $(this).valid();
+    });
+
+    $(".vendor").select2({
+		templateResult: formatWallet,
+		templateSelection: formatWallet
+   	});
+
+    var validators = $("#walletForm").validate();
+
 });
+
+// $("#walletForm").validate();
+
+$("#walletForm").validate({
+	highlight: function (element, errorClass, validClass) {
+		$(element).parents('.form-control').removeClass('has-success').addClass('has-error');     
+	},
+	unhighlight: function (element, errorClass, validClass) {
+		$(element).parents('.form-control').removeClass('has-error').addClass('has-success');
+	},
+	errorPlacement: function (error, element) {
+		if (element.parent('.form-group').length) {
+			error.insertAfter(element.parent());
+		} else if (element.hasClass('select2')) {
+			error.insertAfter(element.next('span'));
+		} else {
+			error.insertAfter(element);
+		}
+	}
+});
+
 
 // Card Form
 

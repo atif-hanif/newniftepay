@@ -427,6 +427,7 @@ label.error {
     font-size: 12px;
     font-weight: 700 !important;
     margin-bottom: .25rem !important;
+    width: 100%;
 }
 
 /* Thank You Card */
@@ -608,20 +609,18 @@ input:-internal-autofill-selected {
 
 input.exp {
     float: left;
-    font-family: monospace;
     border: 0;
-    width: 25px;
+    width: 33px;
     outline: none;
     appearance: none;
-    font-size: 14px;
 }
 
 #bank_information_2 {
     display: none;
 }
 
-.error {
-    margin-bottom: 0px;
-    color: var(--primary-color);
-    font-weight: 700;
+label.myErrorClass {
+    color: red;
+    font-size: 11px;
+    display: block;
 }
