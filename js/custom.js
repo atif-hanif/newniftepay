@@ -69,7 +69,7 @@ window.addDashess = function addDashess(g) {
     g.value = npc + ' ' + nxy + ' ' + last4 + ' ' + last;
 }
 
-var card = document.querySelector('#ccnum');
+var card = document.querySelector('#cardno');
 card.addEventListener('keyup', function(e) {
 	if (event.key != 'Backspace' && (card.value.length === 4 || card.value.length === 9 || card.value.length === 14)) {
   		card.value += ' ';
@@ -119,7 +119,7 @@ $('#vendorcnic').bind('keypress', function (event) {
     }
 });
 
-$('#ccnum').bind('keypress', function (event) {
+$('#cardno').bind('keypress', function (event) {
     var regexcn = new RegExp("^[0-9\b]+$");
     var keycn = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regexcn.test(keycn)) {
@@ -137,28 +137,28 @@ $('#cardname').bind('keypress', function (event) {
     }
 });
 
-// $('#month').bind('keypress', function (event) {
-//     var regexcm = new RegExp("^[0-9\b]+$");
-//     var keycm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-//     if (!regexcm.test(keycm)) {
-//        event.preventDefault();
-//        return false;
-//     }
-// });
+$('#month').bind('keypress', function (event) {
+    var regexcm = new RegExp("^[0-9\b]+$");
+    var keycm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcm.test(keycm)) {
+       event.preventDefault();
+       return false;
+    }
+});
 
-// $('#year').bind('keypress', function (event) {
-//     var regexcy = new RegExp("^[0-9\b]+$");
-//     var keycy = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-//     if (!regexcy.test(keycy)) {
-//        event.preventDefault();
-//        return false;
-//     }
-// });
+$('#year').bind('keypress', function (event) {
+    var regexcy = new RegExp("^[0-9\b]+$");
+    var keycy = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcy.test(keycy)) {
+       event.preventDefault();
+       return false;
+    }
+});
 
-$('#cvc').bind('keypress', function (event) {
-    var regexcvc = new RegExp("^[0-9\b]+$");
-    var keycvc = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcvc.test(keycvc)) {
+$('#cvv').bind('keypress', function (event) {
+    var regexcvv = new RegExp("^[0-9\b]+$");
+    var keycvv = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcvv.test(keycvv)) {
        event.preventDefault();
        return false;
     }
@@ -334,64 +334,6 @@ $("#walletForm").validate({
 
 $("#cardForm").validate();
 
-(function() {
-	var ccnum  = document.getElementById('ccnum'),
-		type   = document.getElementById('ccnum-type'),
-		expiry = document.getElementById('expiry'),
-		cvc    = document.getElementById('cvc'),
-		submit = document.getElementById('submit'),
-		result = document.getElementById('result');
-  
-	payform.cardNumberInput(ccnum);
-	payform.expiryInput(expiry);
-	payform.cvcInput(cvc);
-  
-	ccnum.addEventListener('input',   updateType);
-  
-	submit.addEventListener('click', function() {
-	  var valid     = [],
-		  expiryObj = payform.parseCardExpiry(expiry.value);
-  
-	  valid.push(fieldStatus(ccnum,  payform.validateCardNumber(ccnum.value)));
-	  valid.push(fieldStatus(expiry, payform.validateCardExpiry(expiryObj)));
-	  valid.push(fieldStatus(cvc,    payform.validateCardCVC(cvc.value, type.innerHTML)));
-  
-	  result.className = 'emoji ' + (valid.every(Boolean) ? 'valid' : 'invalid');
-	});
-  
-	function updateType(e) {
-	  var cardType = payform.parseCardType(e.target.value);
-	  type.innerHTML = cardType || 'invalid';
-	}
-  
-  
-	function fieldStatus(input, valid) {
-	  if (valid) {
-		removeClass(input.parentNode, 'error');
-		document.getElementById("error1").innerHTML = ""
-		document.getElementById("error2").innerHTML = ""
-		document.getElementById("error3").innerHTML = ""
-	  } else {
-		addClass(input.parentNode, 'error');
-		document.getElementById("error1").innerHTML = "required"
-		document.getElementById("error2").innerHTML = "required"
-		document.getElementById("error3").innerHTML = "required"
-	  }
-	  return valid;
-	}
-  
-	function addClass(ele, _class) {
-	  if (ele.className.indexOf(_class) === -1) {
-		ele.className += ' ' + _class;
-	  }
-	}
-  
-	function removeClass(ele, _class) {
-	  if (ele.className.indexOf(_class) !== -1) {
-		ele.className = ele.className.replace(_class, '');
-	  }
-	}
-})();
 
 // OTP
 
@@ -458,10 +400,9 @@ function otptimer(remaining) {
 
 otptimer(120);
 
-
 //Session
 
-var deadline = new Date("Dec 02, 2022 13:00:00").getTime();
+var deadline = new Date("Nov 30, 2022 13:31:00").getTime();
 var x = setInterval(function() {
 	var now = new Date().getTime();
 	var t = deadline - now;
