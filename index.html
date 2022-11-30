@@ -278,8 +278,9 @@
                                                 <h3 class="select-bank">Card Payment</h3>
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
-                                                        <label for="cardno" class="form-label">Card Number <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="cardno" name="cardno" minlength="19" maxlength="19" required onKeyup='addDashess(this)'>
+                                                        <label for="ccnum" class="form-label">Card Number <span class="star">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="ccnum" name="ccnum" minlength="19" maxlength="19" required onKeyup='addDashess(this)'>
+                                                        <small>type: <strong id="ccnum-type">invalid</strong></small>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Number</div>
                                                     </div>
                                                     <div class="col-12 col-md-6 mt-3 mt-md-0">
@@ -291,17 +292,18 @@
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-12 col-md-3">
-                                                        <label for="cardexpiry" class="form-label">Card Expiry <span class="star">*</span></label>
+                                                        <label for="expiry" class="form-label">Card Expiry <span class="star">*</span></label>
+                                                        <input class="form-control" placeholder="-- / --"  minlenght="5" maxlenght="5" type="tel" name="expiry" value="" id="expiry">
                                                         <!-- <input type="text" class="form-control" placeholder="MM/YY" id="card-expiry" maxlength="5" required> -->
-                                                        <div class="exp-wrapper form-control">
+                                                        <!-- <div class="exp-wrapper form-control">
                                                             <input autocomplete="off" class="exp" id="month" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="MM" type="text" data-pattern-validate/>
-                                                            <input autocomplete="off" class="exp" id="year" maxlength="2" pattern="[0-9]*" required inputmode="numerical" placeholder="YY" type="text" data-pattern-validate/>
-                                                        </div>
+                                                            <input autocomplete="off" class="exp" id="year" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="YY" type="text" data-pattern-validate/>
+                                                        </div> -->
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Expiry</div>
                                                     </div>
                                                     <div class="col-12 col-md-3 mt-3 mt-md-0">
-                                                        <label for="cvv" class="form-label">CVV / CVC <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="999" id="cvv" minlength="3" maxlength="3" name="cvv" required>
+                                                        <label for="cvc" class="form-label">CVV / CVC <span class="star">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="999" id="cvc" minlength="3" maxlength="3" name="cvc" required>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card CVV/CVC</div>
                                                     </div>
                                                     <div class="col"></div>
@@ -750,11 +752,12 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="js/select2.min.js"></script> -->
+    
     <script src="js/select2.full.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
     <script src="js/all.min.js"></script>
+    <script src="js/payform.min.js"></script> 
     <script src="js/custom.js"></script>
     
 </body>
