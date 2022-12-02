@@ -620,7 +620,27 @@ input.exp {
 }
 
 label.myErrorClass {
-    color: red;
+    color: var(--primary-color);
     font-size: 11px;
     display: block;
+}
+
+.validcard {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.cardtype {
+    color: var(--tabs-border);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.emsg {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.hidden {
+    visibility:hidden;
 }

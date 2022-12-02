@@ -1,9 +1,22 @@
-// var cnic = document.querySelector('#cnic');
-// cnic.addEventListener('keyup', function(e) {
-// 	if (event.key != 'Backspace' && (cnic.value.length === 5 || cnic.value.length === 13)) {
-//   		cnic.value += '-';
-//   	}
-// });
+//Session
+
+var deadline = new Date("Dec 03, 2022 13:31:00").getTime();
+var x = setInterval(function() {
+	var now = new Date().getTime();
+	var t = deadline - now;
+	var days = Math.floor(t / (1000 * 60 * 60 * 24));
+	var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+	// var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60 ));
+	var minutes = Math.floor(t / (1000 * 60 ));
+	var seconds = Math.floor((t % (1000 * 60)) / 1000);
+	document.getElementById("timer").innerHTML = "<div class='minutes'>" + minutes + "</div> : <div class='seconds'>" + seconds + '</div>';
+		if (t < 0) {
+			clearInterval(x);
+			document.getElementById("timer").innerHTML = "EXPIRED";
+		}
+}, 1000);
+
+// Bank Form
 
 window.addDash = function addDash(a) {
     var b = /(\D+)/g,
@@ -17,85 +30,10 @@ window.addDash = function addDash(a) {
     a.value = npa + '-' + nxw + '-' + last1;
 }
 
-// var mobile = document.querySelector('#mobile-no');
-// mobile.addEventListener('keyup', function(e) {
-// 	if (event.key != 'Backspace' && (mobile.value.length === 4)) {
-//   		mobile.value += '-';
-//   	}
-// });
-
-window.addDashe = function addDashe(c) {
-    var d = /(\D+)/g,
-        npb = '',
-        nxx = '';
-        //last2 = '';
-    c.value = c.value.replace(d, '');
-    npb = c.value.substr(0, 4);
-    nxx = c.value.substr(4, 7);
-    //last2 = f.value.substr(6, 4);
-    c.value = npb + '-' + nxx ;
-}
-
-// var vcnic = document.querySelector('#vendor-cnic');
-// vcnic.addEventListener('keyup', function(e) {
-// 	if (event.key != 'Backspace' && (vcnic.value.length === 5 || vcnic.value.length === 13)) {
-//   		vcnic.value += '-';
-//   	}
-// });
-
-window.addDashes = function addDashes(e) {
-    var f = /(\D+)/g,
-        npc = '',
-        nxy = '',
-        last3 = '';
-    e.value = e.value.replace(f, '');
-    npc = e.value.substr(0, 5);
-    nxy = e.value.substr(5, 7);
-    last3 = e.value.substr(12, 1);
-    e.value = npc + '-' + nxy + '-' + last3;
-}
-
-window.addDashess = function addDashess(g) {
-    var h = /(\D+)/g,
-        npc = '',
-        nxy = '',
-        last4 = '',
-		last = '';
-    g.value = g.value.replace(h, '');
-    npc = g.value.substr(0, 4);
-    nxy = g.value.substr(4, 4);
-    last4 = g.value.substr(8, 4);
-	last = g.value.substr(12, 4);
-    g.value = npc + ' ' + nxy + ' ' + last4 + ' ' + last;
-}
-
-var card = document.querySelector('#cardno');
-card.addEventListener('keyup', function(e) {
-	if (event.key != 'Backspace' && (card.value.length === 4 || card.value.length === 9 || card.value.length === 14)) {
-  		card.value += ' ';
-  	}
-});
-
-// var cexpiry = document.querySelector('#card-expiry');
-// cexpiry.addEventListener('keyup', function(e) {
-// 	if (event.key != 'Backspace' && (cexpiry.value.length === 2)) {
-//   		cexpiry.value += '/';
-//   	}
-// });
-
-$('#accountno').bind('keypress', function (event) {
+$('.accountno').bind('keypress', function (event) {
     var regexa = new RegExp("^[a-zA-Z0-9\b]+$");
     var keya = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regexa.test(keya)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#mobileno').bind('keypress', function (event) {
-    var regexm = new RegExp("^[0-9\b]+$");
-    var keym = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexm.test(keym)) {
        event.preventDefault();
        return false;
     }
@@ -110,62 +48,6 @@ $('#cnic').bind('keypress', function (event) {
     }
 });
 
-$('#vendorcnic').bind('keypress', function (event) {
-    var regexvc = new RegExp("^[0-9\b]+$");
-    var keyvc = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexvc.test(keyvc)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#cardno').bind('keypress', function (event) {
-    var regexcn = new RegExp("^[0-9\b]+$");
-    var keycn = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcn.test(keycn)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#cardname').bind('keypress', function (event) {
-    var regexcnm = new RegExp("^[a-zA-Z \b]+$");
-    var keycnm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcnm.test(keycnm)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#month').bind('keypress', function (event) {
-    var regexcm = new RegExp("^[0-9\b]+$");
-    var keycm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcm.test(keycm)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#year').bind('keypress', function (event) {
-    var regexcy = new RegExp("^[0-9\b]+$");
-    var keycy = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcy.test(keycy)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#cvv').bind('keypress', function (event) {
-    var regexcvv = new RegExp("^[0-9\b]+$");
-    var keycvv = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcvv.test(keycvv)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-// Bank Form
-
 function formatBank (bank) {
 	if (!bank.id) {
 	  return bank.text;
@@ -179,11 +61,6 @@ function formatBank (bank) {
   	$bank.find("img").attr("src", baseUrl + "/" + bank.element.value.toLowerCase() + ".png");
 	return $bank;
 };
-
-// $(".bank").select2({
-//  	templateResult: formatBank,
-//  	templateSelection: formatBank
-// });
 
 $(document).ready(function () {
 
@@ -272,68 +149,465 @@ $(document).ready(function() {
 	});
 });
 
-
-// Wallet Bank
-
-function formatWallet (wallet) {
-	if (!wallet.id) {
-	  return wallet.text;
-	}
-	var baseUrl = "images/wallet";
-	var $wallet = $(
-	//  '<span><img src="' + baseUrl + '/' + wallet.element.value.toLowerCase() + '.png" class="img-flag" /> ' + wallet.text + '</span>'
-	'<span><img class="img-flag" /> <span></span></span>'
-	);
-	$wallet.find("span").text(wallet.text);
-  	$wallet.find("img").attr("src", baseUrl + "/" + wallet.element.value.toLowerCase() + ".png");
-	return $wallet;
-};
-
-// $(".vendor").select2({
-// 	templateResult: formatWallet,
-// 	templateSelection: formatWallet
-// });
-
-$(document).ready(function () {
-
-    $('.vendor').on('change', function () {
-        $(this).valid();
+$(document).ready(function(){
+    $('#bankaccount').on('change', function() {
+		if ( this.value == 'allied-bank')
+		{
+			$("#allied").show();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'habib-metro-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").show();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'alfalah-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").show();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'bop-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").show();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'mcbi-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").show();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'samba-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").show();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'bok-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").show();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'faysal-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").show();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'askari-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").show();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'bank-islami-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").show();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'bank-al-habib-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").show();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'habib-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").show();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'konnect-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").show();
+			$("#albaraka").hide();
+		}
+		else if ( this.value == 'albaraka-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").show();
+		}
+		else 
+		{	
+			$("#inputaccount").show();
+			$("#allied").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+		}
     });
 
-    $(".vendor").select2({
-		templateResult: formatWallet,
-		templateSelection: formatWallet
-   	});
-
-    var validators = $("#walletForm").validate();
-
-});
-
-// $("#walletForm").validate();
-
-$("#walletForm").validate({
-	highlight: function (element, errorClass, validClass) {
-		$(element).parents('.form-control').removeClass('has-success').addClass('has-error');     
-	},
-	unhighlight: function (element, errorClass, validClass) {
-		$(element).parents('.form-control').removeClass('has-error').addClass('has-success');
-	},
-	errorPlacement: function (error, element) {
-		if (element.parent('.form-group').length) {
-			error.insertAfter(element.parent());
-		} else if (element.hasClass('select2')) {
-			error.insertAfter(element.next('span'));
-		} else {
-			error.insertAfter(element);
+	var $regexallac = /^[0-9]{4}(001|002)[0-9]{13}$/;
+	var $regexalliban = /^(PK)[0-9]{2}[A-Z]{4}[0-9]{16}/g;
+	$('#alliedaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexallac) && !$(this).val().match($regexalliban)) {
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
 		}
-	}
+		else {
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexhmbac = /^[0]?[6]{1,2}\d{18}$/;
+	var $regexhmbiban = /^(PK)\d{2}[A-Z]{4}[0-9]{16}/g;
+	$('#hmbaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexhmbac) && !$(this).val().match($regexhmbiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexalfac = /^[0-9]{4}(1|5)[0-9]{9}$/;
+	$('#alfalahaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexalfac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexbopac = /^(4|5|6|8)[0-9]{15}$/;
+	$('#bopaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexbopac)) {
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexmcbac = /^[0-9]{16}$/;
+	var $regexmcbiban = /^(PK)\d{2}(MCIB)[0-9]{16}/g;
+	$('#mcbaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexmcbac) && !$(this).val().match($regexmcbiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexsambaac = /^(20|64|65)[0-9]{8}$/;
+	$('#sambaaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexsambaac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexbokac = /^(0|1)[0-9]{14,16}$/;
+	$('#bokccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexbokac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexfaysalac = /^(0|3|8)[0-9]{14,16}$/;
+	$('#faysalccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexfaysalac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexaskariac = /^[0-9]{13}$/;
+	var $regexaskariiban = /^(PK)\d{2}[A-Z]{4}[0-9]{16}/g;
+	$('#askariaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexaskariac) && !$(this).val().match($regexaskariiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexislamiac = /^[0-9]{15}$/;
+	$('#islamiaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexislamiac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexalhabibac = /^[0-9]{17}$/;
+	var $regexalhabibiban = /^(PK)\d{2}[A-Z]{4}[0-9]{16}/g;
+	$('#alhabibaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexalhabibac) && !$(this).val().match($regexalhabibiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexhblac = /^[0-9]{14}$/;
+	$('#hblaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexhblac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexkonnectac = /^[0-9]{11}$/;
+	$('#konnectaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexkonnectac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexalbarakaac = /^[0-9]{13}$/;
+	var $regexalbarakaiban = /^(PK)\d{2}[A-Z]{4}[0-9]{16}/g;
+	$('#albarakaaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexalbarakaac) && !$(this).val().match($regexalbarakaiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
 });
-
-
-// Card Form
-
-$("#cardForm").validate();
-
 
 // OTP
 
@@ -400,24 +674,6 @@ function otptimer(remaining) {
 
 otptimer(120);
 
-//Session
-
-var deadline = new Date("Nov 30, 2022 13:31:00").getTime();
-var x = setInterval(function() {
-	var now = new Date().getTime();
-	var t = deadline - now;
-	var days = Math.floor(t / (1000 * 60 * 60 * 24));
-	var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
-	// var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60 ));
-	var minutes = Math.floor(t / (1000 * 60 ));
-	var seconds = Math.floor((t % (1000 * 60)) / 1000);
-	document.getElementById("timer").innerHTML = "<div class='minutes'>" + minutes + "</div> : <div class='seconds'>" + seconds + '</div>';
-		if (t < 0) {
-			clearInterval(x);
-			document.getElementById("timer").innerHTML = "EXPIRED";
-		}
-}, 1000);
-
 $(document).ready(function() {
 	$(document).on('click', '#pay', function(e) {
 		if($('#bank-confirmation').hasClass('d-none')) {
@@ -427,22 +683,106 @@ $(document).ready(function() {
 		}
 	});
 
-	$(document).on('click', '#pay', function(e) {
+});
+
+// Wallet Form
+
+window.addDashe = function addDashe(c) {
+    var d = /(\D+)/g,
+        npb = '',
+        nxx = '';
+        //last2 = '';
+    c.value = c.value.replace(d, '');
+    npb = c.value.substr(0, 4);
+    nxx = c.value.substr(4, 7);
+    //last2 = f.value.substr(6, 4);
+    c.value = npb + '-' + nxx ;
+}
+
+window.addDashes = function addDashes(e) {
+    var f = /(\D+)/g,
+        npc = '',
+        nxy = '',
+        last3 = '';
+    e.value = e.value.replace(f, '');
+    npc = e.value.substr(0, 5);
+    nxy = e.value.substr(5, 7);
+    last3 = e.value.substr(12, 1);
+    e.value = npc + '-' + nxy + '-' + last3;
+}
+
+$('#mobileno').bind('keypress', function (event) {
+    var regexm = new RegExp("^[0-9\b]+$");
+    var keym = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexm.test(keym)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#vendorcnic').bind('keypress', function (event) {
+    var regexvc = new RegExp("^[0-9\b]+$");
+    var keyvc = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexvc.test(keyvc)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+function formatWallet (wallet) {
+	if (!wallet.id) {
+	  return wallet.text;
+	}
+	var baseUrl = "images/wallet";
+	var $wallet = $(
+	//  '<span><img src="' + baseUrl + '/' + wallet.element.value.toLowerCase() + '.png" class="img-flag" /> ' + wallet.text + '</span>'
+	'<span><img class="img-flag" /> <span></span></span>'
+	);
+	$wallet.find("span").text(wallet.text);
+  	$wallet.find("img").attr("src", baseUrl + "/" + wallet.element.value.toLowerCase() + ".png");
+	return $wallet;
+};
+
+$(document).ready(function () {
+
+    $('.vendor').on('change', function () {
+        $(this).valid();
+    });
+
+    $(".vendor").select2({
+		templateResult: formatWallet,
+		templateSelection: formatWallet
+   	});
+
+    var validators = $("#walletForm").validate();
+
+});
+
+$("#walletForm").validate({
+	highlight: function (element, errorClass, validClass) {
+		$(element).parents('.form-control').removeClass('has-success').addClass('has-error');     
+	},
+	unhighlight: function (element, errorClass, validClass) {
+		$(element).parents('.form-control').removeClass('has-error').addClass('has-success');
+	},
+	errorPlacement: function (error, element) {
+		if (element.parent('.form-group').length) {
+			error.insertAfter(element.parent());
+		} else if (element.hasClass('select2')) {
+			error.insertAfter(element.next('span'));
+		} else {
+			error.insertAfter(element);
+		}
+	}
+});
+
+$(document).ready(function() {
+    $(document).on('click', '#pay', function(e) {
 		if($('#myModal').hasClass('d-none')) {
 			$('#myModal').removeClass('d-none');
 			
 		}
 	});
-
-	// $("#walletForm").validate();
-
-	// $(document).on('click', '.back', function(e) {
-	// 	if($('#myModal').hasClass('show')) {
-	// 		$('#myModal').css("display", "none")
-	// 		$('.modal-backdrop').removeClass('show');
-	// 		$('.modal-backdrop').addClass('hide');
-	// 	}
-	// });
 
 	$(document).on('click', '.wallet-div', function(e) {
 		if($('#wallet-confirmation').hasClass('d-none')) {
@@ -457,44 +797,148 @@ $(document).ready(function() {
 			$('.modal-open').css({"overflow": ""});
 		}
 	});
-
-	// $(document).on('click', '.proceed', function(e) {
-	// 	if($('#card-confirmation').hasClass('d-none')) {
-	// 		$('#card-confirmation').removeClass('d-none');
-	// 		$('#card-confirmation').addClass('d-block');
-	// 		$('#payment').addClass('d-none');
-	// 	}
-	// });
-
-	$(document).on('submit', function(e) {
-		$('#card-confirmation').removeClass('d-none');
-		$('#card-confirmation').addClass('d-block');
-		$('#payment').addClass('d-none');
-		e.preventDefault()
-	})
-
-	// $(document).on('click', '.home', function(e) {
-	// 	if($('#bank-confirmation').hasClass('d-block')) {
-	// 		$('#bank-confirmation').addClass('d-none');
-	// 		$('#payment').removeClass('d-none');
-	// 	}
-	// });
-
-	// $(document).on('click', '.home', function(e) {
-	// 	if($('#wallet-confirmation').hasClass('d-block')) {
-	// 		$('#wallet-confirmation').addClass('d-none');
-	// 		$('#payment').removeClass('d-none');
-	// 	}
-	// });
-	
-	// $(document).on('click', '.home', function(e) {
-	// 	if($('#card-confirmation').hasClass('d-block')) {
-	// 		$('#card-confirmation').addClass('d-none');
-	// 		$('#payment').removeClass('d-none');
-	// 	}
-	// });
-
 });
+
+// Card Form
+
+window.addDashess = function addDashess(g) {
+    var h = /(\D+)/g,
+        npc = '',
+        nxy = '',
+        last4 = '',
+		last = '';
+    g.value = g.value.replace(h, '');
+    npc = g.value.substr(0, 4);
+    nxy = g.value.substr(4, 4);
+    last4 = g.value.substr(8, 4);
+	last = g.value.substr(12, 4);
+    g.value = npc + ' ' + nxy + ' ' + last4 + ' ' + last;
+}
+
+var card = document.querySelector('#cardno');
+card.addEventListener('keyup', function(e) {
+	if (event.key != 'Backspace' && (card.value.length === 4 || card.value.length === 9 || card.value.length === 14)) {
+  		card.value += ' ';
+  	}
+	if(card.value.length == 19)
+	{
+
+		update(card.value);
+
+	}
+});
+
+$('#cardno').bind('keypress', function (event) {
+    var regexcn = new RegExp("^[0-9\b]+$");
+    var keycn = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcn.test(keycn)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#cardname').bind('keypress', function (event) {
+    var regexcnm = new RegExp("^[a-zA-Z \b]+$");
+    var keycnm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcnm.test(keycnm)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#month').bind('keypress', function (event) {
+    var regexcm = new RegExp("^[0-9\b]+$");
+    var keycm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcm.test(keycm)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#year').bind('keypress', function (event) {
+    var regexcy = new RegExp("^[0-9\b]+$");
+    var keycy = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcy.test(keycy)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#cvv').bind('keypress', function (event) {
+    var regexcvv = new RegExp("^[0-9\b]+$");
+    var keycvv = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcvv.test(keycvv)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$("#cardForm").validate();
+
+function validateCreditCardNumber(cardNumber) {
+	
+	cardNumber = cardNumber.split(' ').join("");
+	if (parseInt(cardNumber) <= 0 || (!/\d{15,16}(~\W[a-zA-Z])*$/.test(cardNumber)) || cardNumber.length > 16) {
+		return false;
+	}
+	var carray = new Array();
+	for (var i = 0; i < cardNumber.length; i++) {
+		carray[carray.length] = cardNumber.charCodeAt(i) - 48;
+	}
+	carray.reverse();
+	var sum = 0;
+	for (var i = 0; i < carray.length; i++) {
+		var tmp = carray[i];
+		if ((i % 2) != 0) {
+			tmp *= 2;
+			if (tmp > 9) {
+				tmp -= 9;
+			}
+		}
+		sum += tmp;
+	}
+	return ((sum % 10) == 0);
+}
+
+function cardType(cardNumber) { // returns card type; should not rely on this for checking if a card is valid
+	cardNumber = cardNumber.split(' ').join("");
+    var o = {
+        electron: /^(4026|417500|4405|4508|4844|4913|4917)\d+$/,
+        maestro: /^(5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d+$/,
+        dankort: /^(5019)\d+$/,
+        interpayment: /^(636)\d+$/,
+        unionpay: /^(62|88)\d+$/,
+        visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
+        mastercard: /^5[1-5][0-9]{14}$/,
+        amex: /^3[47][0-9]{13}$/,
+        diners: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
+        discover: /^6(?:011|5[0-9]{2})[0-9]{12}$/,
+        jcb: /^(?:2131|1800|35\d{3})\d{11}$/
+    }
+    for(var k in o) {
+        if(o[k].test(cardNumber)) {
+            return k;
+		}
+    }
+	return null;
+}
+
+function update(cardNumber) {
+	var cardtype = document.getElementById("cardtype");
+	var valid = document.getElementById("valid");
+	if(validateCreditCardNumber(cardNumber)) {
+		
+		valid.innerText = "Valid Card";
+		cardtype.innerText = cardType(cardNumber);
+		// img.src = (cardType(cardNumber) || "other") + "images/card/.png";
+	}
+	else {
+		valid.innerText = "InValid Card";
+		valid.style.color = "red";
+		cardtype.innerText = cardType(cardNumber);
+		//img.src = "images/card/other.png";
+	}
+}
 
 const monthInput = document.querySelector('#month');
 const yearInput = document.querySelector('#year');
@@ -532,4 +976,14 @@ yearInput.addEventListener('keydown', (event) => {
 		focusSibling(event.target, "previousElementSibling");
 		event.stopImmediatePropagation();
 	}
+});
+
+$(document).ready(function() {
+	$(document).on('submit', function(e) {
+		$('#card-confirmation').removeClass('d-none');
+		$('#card-confirmation').addClass('d-block');
+		$('#payment').addClass('d-none');
+		e.preventDefault()
+	})
+
 });

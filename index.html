@@ -154,13 +154,13 @@
                                                         <div class="col-12 col-md-6">
                                                             <h3 class="select-bank">Select your Bank</h3>
                                                             <label for="bankaccount" class="form-label">Bank Account <span class="star">*</span></label>
-                                                            <select type="text" class="form-control bank required" id="bank-account" name="bankaccount">
+                                                            <select type="text" class="form-control bank required" id="bankaccount" name="bankaccount">
                                                                 <option value="">Select Your Bank</option>
                                                                 <option value="allied-bank">Allied Bank</option>
                                                                 <option value="habib-metro-bank">Habib Metropolitan Bank</option>
                                                                 <option value="alfalah-bank">Bank Alfalah</option>
                                                                 <option value="bop-bank">The Bank of Punjab</option>
-                                                                <option value="mcb-bank">MCB Bank</option>
+                                                                <option value="mcbi-bank">MCB Islamic Bank</option>
                                                                 <option value="samba-bank">Samba Bank</option>
                                                                 <option value="bok-bank">Bank of Khyber</option>
                                                                 <option value="faysal-bank">Faysal Bank</option>
@@ -177,10 +177,109 @@
                                                     <h3 class="bank-info">Bank Information</h3>
                                                     <div class="row">
                                                         <div class="col-12 col-md-6 form-group">
-                                                            <label for="accountno" class="form-label">Account <span class="star">*</span></label>
-                                                            <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="accountno" maxlength="16" name="accountno" required>
-                                                            <div class="red fw-bold pt-1">Account not Found.</div>
-                                                            <div class="black fw-bold">Please enter 16 digit account number following the <br>layout below <br> 10XXXXXXXXXXXXXX</div>
+                                                            <div id="inputaccount">
+                                                                <label for="inputfield" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="inputfield" name="inputfield" required>
+                                                                <span class="emsg">Please Enter a Valid Account Number</span>
+                                                            </div>
+                                                            <div id="allied" style='display:none;'>
+                                                                <label for="alliedaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="alliedaccount" minlength="20" maxlength="24" name="alliedaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please ensure that your Account is Activated to use this service. Kindly Call ABL H/L 021-111-225-225 to activate your local e-commerce service. Please enter your 20-digit account number or 24 Alphanumeric IBAN.</div>
+                                                            </div>
+                                                            <div id="habibmetro" style='display:none;'>
+                                                                <label for="hmbaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="hmbaccount" minlength="19" maxlength="24" name="hmbaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter your 19 or 20 digit account number or 24 Alphanumeric IBAN.</div>
+                                                            </div>
+                                                            <div id="alfalah" style='display:none;'>
+                                                                <label for="alfalahaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="alfalahaccount" minlength="14" maxlength="14" name="alfalahaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter your 14-digit account number.</div>
+                                                            </div>
+                                                            <div id="bop" style='display:none;'>
+                                                                <label for="bopaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="bopaccount" minlength="16" maxlength="16" name="bopaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">	Please ensure your account is activated to use this service. Kindly Call BOP H/L 042-111-267-200 to activate your e-commerce service. Please enter your 16-digit account number.</div>
+                                                            </div>
+                                                            <div id="mcb" style='display:none;'>
+                                                                <label for="mcbaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="mcbaccount" minlength="16" maxlength="24" name="mcbaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please ensure your account is activated to use this service. Kindly Call MIB H/L 042-111-222-642 to activate your e-commerce service. Please enter your 16 digit account number or 24 Alpha-numeric IBAN.</div>
+                                                            </div>
+                                                            <div id="samba" style='display:none;'>
+                                                                <label for="sambaaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="sambaaccount" minlength="10" maxlength="10" name="sambaaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter your 10-digit account number.</div>
+                                                            </div>
+                                                            <div id="bok" style='display:none;'>
+                                                                <label for="bokaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="bokaccount" minlength="14" maxlength="16" name="bokaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter your 14-digit or 16-digit account number.</div>
+                                                            </div>
+                                                            <div id="faysal" style='display:none;'>
+                                                                <label for="faysalaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="faysalaccount" minlength="14" maxlength="16" name="faysalaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter your 14-digit or 16-digit account number.</div>
+                                                            </div>
+                                                            <div id="askari" style='display:none;'>
+                                                                <label for="askariaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="askariaccount" minlength="13" maxlength="24" name="askariaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter 13 digit Account number or 24 Alpha-numeric IBAN.</div>
+                                                            </div>
+                                                            <div id="islami" style='display:none;'>
+                                                                <label for="islamiaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="islamiaccount" minlength="15" maxlength="24" name="islamiaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter your 15-digit account number.</div>
+                                                            </div>
+                                                            <div id="alhabib" style='display:none;'>
+                                                                <label for="alhabibaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="alhabibaccount" minlength="17" maxlength="24" name="alhabibaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter 17 digit account number or 24 Alpha-numeric IBAN.</div>
+                                                            </div>
+                                                            <div id="hbl" style='display:none;'>
+                                                                <label for="hblaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="hblaccount" minlength="14" maxlength="14" name="hblaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter your 14 digit account number.</div>
+                                                            </div>
+                                                            <div id="konnect" style='display:none;'>
+                                                                <label for="konnectaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="konnectaccount" minlength="11" maxlength="11" name="konnectaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter your 11 digit account number.</div>
+                                                            </div>
+                                                            <div id="albaraka" style='display:none;'>
+                                                                <label for="albarakaaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="albarakaaccount" minlength="13" maxlength="24" name="albarakaaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter 13 digit account number or 24 Alpha-numeric IBAN</div>
+                                                            </div>
                                                         </div>
                                                         <div class="col-12 col-md-6 mt-3 mt-md-0 form-group">
                                                             <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
@@ -188,11 +287,11 @@
                                                             <div class="red fw-bold pt-1">Kindly enter your valid CNIC Number</div>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="btn btn-danger btn-red next">Proceed <i class="fa fa-arrow-right"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-red next mt-3">Proceed <i class="fa fa-arrow-right"></i></button>
                                                 </fieldset>
 
                                                 <fieldset id="bank_information_2" class="">
-                                                    <img src="images/bank/mcb-bank.png" class="d-inline" alt="MCB Logo">
+                                                    <img src="images/bank/mcbi-bank.png" class="d-inline" alt="MCB Logo">
                                                     <p class="d-inline">MCB Bank</p>
                                                     <div class="row mt-3">
                                                         <div class="col-12 col-md-6">
@@ -233,7 +332,7 @@
                                                         </div>
                                                     </div>
                                                     <button type="button" class="btn btn-danger btn-red" id="previous"><i class="fa fa-arrow-left"></i> Previous</button>
-                                                    <button type="submit" class="btn btn-success btn-green" id="pay">Pay <i class="fa fa-arrow-right"></i></button>
+                                                    <button type="button" class="btn btn-success btn-green" id="pay">Pay <i class="fa fa-arrow-right"></i></button>
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -276,8 +375,11 @@
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
                                                         <label for="cardno" class="form-label">Card Number <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="cardno" name="cardno" minlength="19" maxlength="19" required onKeyup='addDashess(this)'>
+                                                        <!-- onkeyup="update(this.value); -->
+                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="cardno" name="cardno" minlength="19" maxlength="19" required >
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Number</div>
+                                                        <span id="cardtype" class="cardtype"></span>
+                                                        <span id="valid" class="validcard"></span>
                                                     </div>
                                                     <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                         <label for="cardname" class="form-label">Card Holder Name <span class="star">*</span></label>
@@ -285,7 +387,6 @@
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Holder Name</div>
                                                     </div>
                                                 </div>
-                                                <br>
                                                 <div class="row">
                                                     <div class="col-12 col-md-3">
                                                         <label for="cardexpiry" class="form-label">Card Expiry <span class="star">*</span></label>
@@ -754,6 +855,7 @@
     <script src="js/all.min.js"></script>
     <script src="js/custom.js"></script>
     
+
 </body>
 
 </html>
