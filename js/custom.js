@@ -501,8 +501,8 @@ $(document).ready(function(){
 		}
     });
 
-	var $regexbokac = /^(0|1)[0-9]{14,16}$/;
-	$('#bokccount').on('keypress keydown keyup',function(){
+	var $regexbokac = /^(0|1)[0-9]{13,15}$/;
+	$('#bokaccount').on('keypress keydown keyup',function(){
 		if (!$(this).val().match($regexbokac)) {
 		// there is a mismatch, hence show the error message
 			$('.emsg').removeClass('hidden');
@@ -514,8 +514,8 @@ $(document).ready(function(){
 		}
     });
 
-	var $regexfaysalac = /^(0|3|8)[0-9]{14,16}$/;
-	$('#faysalccount').on('keypress keydown keyup',function(){
+	var $regexfaysalac = /^(0|3|8)[0-9]{13,15}$/;
+	$('#faysalaccount').on('keypress keydown keyup',function(){
 		if (!$(this).val().match($regexfaysalac)) {
 		// there is a mismatch, hence show the error message
 			$('.emsg').removeClass('hidden');
