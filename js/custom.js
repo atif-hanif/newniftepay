@@ -474,9 +474,10 @@ $(document).ready(function(){
     });
 
 	var $regexmcbac = /^[0-9]{16}$/;
-	var $regexmcbiban = /^(PK)\d{2}(MCIB)[0-9]{16}/g;
+	// var $regexmcbiban = /^(PK)\d{2}(MCIB)[0-9]{16}/g;
 	$('#mcbaccount').on('keypress keydown keyup',function(){
-		if (!$(this).val().match($regexmcbac) && !$(this).val().match($regexmcbiban)) {
+		// if (!$(this).val().match($regexmcbac) && !$(this).val().match($regexmcbiban)) {
+		if (!$(this).val().match($regexmcbac)) {
 		// there is a mismatch, hence show the error message
 			$('.emsg').removeClass('hidden');
 			$('.emsg').show();
