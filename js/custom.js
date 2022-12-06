@@ -473,7 +473,8 @@ $(document).ready(function(){
 		}
     });
 
-	var $regexmcbac = /^[0-9]{16}$/;
+	// var $regexmcbac = /^[0-9]{16}$/;
+	var $regexmcbac = /^(10)[0-9]{14}$/;
 	// var $regexmcbiban = /^(PK)\d{2}(MCIB)[0-9]{16}/g;
 	$('#mcbaccount').on('keypress keydown keyup',function(){
 		// if (!$(this).val().match($regexmcbac) && !$(this).val().match($regexmcbiban)) {
