@@ -15,6 +15,9 @@
 </head>
 
 <body>
+    <!-- <div class="overlay">
+        <img src="images/loader.gif" alt="Loader" class="loader">
+    </div> -->
 	<header>
         <nav class="navbar pt-2">
             <div class="container-fluid px-5">
@@ -170,6 +173,7 @@
                                                                 <option value="habib-bank">Habib Bank Limited</option>
                                                                 <option value="konnect-bank">Habib Bank Limited (Konnect)</option>
                                                                 <option value="albaraka-bank">Albaraka Bank</option>
+                                                                <option value="meezan-bank">Meezan Bank</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -279,6 +283,13 @@
                                                                 <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
                                                                 <div class="red fw-bold pt-1">Account not Found.</div>
                                                                 <div class="black fw-bold">Please enter 13 digit account number or 24 Alpha-numeric IBAN</div>
+                                                            </div>
+                                                            <div id="meezan" style='display:none;'>
+                                                                <label for="meezanaccount" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="Enter Account Number" id="meezanaccount" minlength="14" maxlength="14" name="meezanaccount" required>
+                                                                <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div class="red fw-bold pt-1">Account not Found.</div>
+                                                                <div class="black fw-bold">Please enter 14 digit account number</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-md-6 mt-3 mt-md-0 form-group">

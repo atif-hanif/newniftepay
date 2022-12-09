@@ -168,6 +168,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'habib-metro-bank')
 		{
@@ -186,6 +187,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'alfalah-bank')
 		{
@@ -204,6 +206,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'bop-bank')
 		{
@@ -222,6 +225,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'mcbi-bank')
 		{
@@ -240,6 +244,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'samba-bank')
 		{
@@ -258,6 +263,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'bok-bank')
 		{
@@ -276,6 +282,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'faysal-bank')
 		{
@@ -294,6 +301,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'askari-bank')
 		{
@@ -312,6 +320,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'bank-islami-bank')
 		{
@@ -330,6 +339,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'bank-al-habib-bank')
 		{
@@ -348,6 +358,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'habib-bank')
 		{
@@ -366,6 +377,7 @@ $(document).ready(function(){
 			$("#hbl").show();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'konnect-bank')
 		{
@@ -384,6 +396,7 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").show();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
 		else if ( this.value == 'albaraka-bank')
 		{
@@ -402,6 +415,26 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").show();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'meezan-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").show();
 		}
 		else 
 		{	
@@ -420,11 +453,12 @@ $(document).ready(function(){
 			$("#hbl").hide();
 			$("#konnect").hide();
 			$("#albaraka").hide();
+			$("#meezan").hide();
 		}
     });
 
 	var $regexallac = /^[0-9]{4}(001|002)[0-9]{13}$/;
-	var $regexalliban = /^(PK)[0-9]{2}[A-Z]{4}[0-9]{16}/g;
+	var $regexalliban = /^(PK)[0-9]{2}(ABPA)[0-9]{16}/g;
 	$('#alliedaccount').on('keypress keydown keyup',function(){
 		if (!$(this).val().match($regexallac) && !$(this).val().match($regexalliban)) {
 			$('.emsg').removeClass('hidden');
@@ -436,7 +470,7 @@ $(document).ready(function(){
     });
 
 	var $regexhmbac = /^[0]?[6]{1,2}\d{18}$/;
-	var $regexhmbiban = /^(PK)\d{2}[A-Z]{4}[0-9]{16}/g;
+	var $regexhmbiban = /^(PK)\d{2}(MPBL)[0-9]{16}/g;
 	$('#hmbaccount').on('keypress keydown keyup',function(){
 		if (!$(this).val().match($regexhmbac) && !$(this).val().match($regexhmbiban)) {
 		// there is a mismatch, hence show the error message
@@ -475,10 +509,9 @@ $(document).ready(function(){
 
 	// var $regexmcbac = /^[0-9]{16}$/;
 	var $regexmcbac = /^(10)[0-9]{14}$/;
-	// var $regexmcbiban = /^(PK)\d{2}(MCIB)[0-9]{16}/g;
+	var $regexmcbiban = /^(PK)\d{2}(MCIB)[0-9]{16}/g;
 	$('#mcbaccount').on('keypress keydown keyup',function(){
-		// if (!$(this).val().match($regexmcbac) && !$(this).val().match($regexmcbiban)) {
-		if (!$(this).val().match($regexmcbac)) {
+		if (!$(this).val().match($regexmcbac) && !$(this).val().match($regexmcbiban)) {
 		// there is a mismatch, hence show the error message
 			$('.emsg').removeClass('hidden');
 			$('.emsg').show();
@@ -529,7 +562,7 @@ $(document).ready(function(){
     });
 
 	var $regexaskariac = /^[0-9]{13}$/;
-	var $regexaskariiban = /^(PK)\d{2}[A-Z]{4}[0-9]{16}/g;
+	var $regexaskariiban = /^(PK)\d{2}(ASCM)[0-9]{16}/g;
 	$('#askariaccount').on('keypress keydown keyup',function(){
 		if (!$(this).val().match($regexaskariac) && !$(this).val().match($regexaskariiban)) {
 		// there is a mismatch, hence show the error message
@@ -556,7 +589,7 @@ $(document).ready(function(){
     });
 
 	var $regexalhabibac = /^[0-9]{17}$/;
-	var $regexalhabibiban = /^(PK)\d{2}[A-Z]{4}[0-9]{16}/g;
+	var $regexalhabibiban = /^(PK)\d{2}(BAHL)[0-9]{16}/g;
 	$('#alhabibaccount').on('keypress keydown keyup',function(){
 		if (!$(this).val().match($regexalhabibac) && !$(this).val().match($regexalhabibiban)) {
 		// there is a mismatch, hence show the error message
@@ -596,9 +629,22 @@ $(document).ready(function(){
     });
 
 	var $regexalbarakaac = /^[0-9]{13}$/;
-	var $regexalbarakaiban = /^(PK)\d{2}[A-Z]{4}[0-9]{16}/g;
+	var $regexalbarakaiban = /^(PK)\d{2}(AIIN)[0-9]{16}/g;
 	$('#albarakaaccount').on('keypress keydown keyup',function(){
 		if (!$(this).val().match($regexalbarakaac) && !$(this).val().match($regexalbarakaiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexmeezanac = /^[0-9]{14}$/;
+	$('#meezanaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexmeezanac)) {
 		// there is a mismatch, hence show the error message
 			$('.emsg').removeClass('hidden');
 			$('.emsg').show();
@@ -779,7 +825,7 @@ $("#walletForm").validate({
 });
 
 $(document).ready(function() {
-    $(document).on('click', '#pay', function(e) {
+    $(document).on('click', '.pay', function(e) {
 		if($('#myModal').hasClass('d-none')) {
 			$('#myModal').removeClass('d-none');
 			

@@ -16,6 +16,23 @@ body {
     background-repeat: no-repeat;
     font-family: var(--font-family);
     font-size: 14px;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.8);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.loader {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .card0 {
