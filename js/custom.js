@@ -741,10 +741,10 @@ window.addDashe = function addDashe(c) {
         nxx = '';
         //last2 = '';
     c.value = c.value.replace(d, '');
-    npb = c.value.substr(0, 4);
-    nxx = c.value.substr(4, 7);
+    npb = c.value.substr(2, 2);
+    nxx = c.value.substr(2, 7);
     //last2 = f.value.substr(6, 4);
-    c.value = npb + '-' + nxx ;
+    c.value = '03' + npb + '-' + nxx ;
 }
 
 window.addDashes = function addDashes(e) {
