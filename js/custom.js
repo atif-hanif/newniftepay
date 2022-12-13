@@ -737,14 +737,14 @@ $(document).ready(function() {
 
 window.addDashe = function addDashe(c) {
     var d = /(\D+)/g,
+		first2 = '03',
         npb = '',
         nxx = '';
-        //last2 = '';
     c.value = c.value.replace(d, '');
+	last2 = c.value.substr(0, 2);
     npb = c.value.substr(2, 2);
-    nxx = c.value.substr(2, 7);
-    //last2 = f.value.substr(6, 4);
-    c.value = '03' + npb + '-' + nxx ;
+    nxx = c.value.substr(4, 7);
+    c.value = first2 + npb + '-' + nxx ;
 }
 
 window.addDashes = function addDashes(e) {
