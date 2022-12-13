@@ -379,25 +379,25 @@ $(document).ready(function(){
 			$("#albaraka").hide();
 			$("#meezan").hide();
 		}
-		else if ( this.value == 'konnect-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").show();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
+		// else if ( this.value == 'konnect-bank')
+		// {
+		// 	$("#allied").hide();
+		// 	$("#inputaccount").hide();
+		// 	$("#habibmetro").hide();
+		// 	$("#alfalah").hide();
+		// 	$("#bop").hide();
+		// 	$("#mcb").hide();
+		// 	$("#samba").hide();
+		// 	$("#bok").hide();
+		// 	$("#faysal").hide();
+		// 	$("#askari").hide();
+		// 	$("#islami").hide();
+		// 	$("#alhabib").hide();
+		// 	$("#hbl").hide();
+		// 	$("#konnect").show();
+		// 	$("#albaraka").hide();
+		// 	$("#meezan").hide();
+		// }
 		else if ( this.value == 'albaraka-bank')
 		{
 			$("#allied").hide();
@@ -615,18 +615,18 @@ $(document).ready(function(){
 		}
     });
 
-	var $regexkonnectac = /^[0-9]{11}$/;
-	$('#konnectaccount').on('keypress keydown keyup',function(){
-		if (!$(this).val().match($regexkonnectac)) {
-		// there is a mismatch, hence show the error message
-			$('.emsg').removeClass('hidden');
-			$('.emsg').show();
-		}
-		else {
-			// else, do not display message
-			$('.emsg').addClass('hidden');
-		}
-    });
+	// var $regexkonnectac = /^[0-9]{11}$/;
+	// $('#konnectaccount').on('keypress keydown keyup',function(){
+	// 	if (!$(this).val().match($regexkonnectac)) {
+	// 	// there is a mismatch, hence show the error message
+	// 		$('.emsg').removeClass('hidden');
+	// 		$('.emsg').show();
+	// 	}
+	// 	else {
+	// 		// else, do not display message
+	// 		$('.emsg').addClass('hidden');
+	// 	}
+    // });
 
 	var $regexalbarakaac = /^[0-9]{13}$/;
 	var $regexalbarakaiban = /^(PK)\d{2}(AIIN)[0-9]{16}/g;
