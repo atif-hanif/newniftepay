@@ -242,6 +242,17 @@ footer {
 
 /* Timer */
 
+#minutes, #seconds {
+    background-color: #fff;
+    color: #000;
+    padding: 2px 5px;
+    margin: 0px 2px;
+}
+
+.counter {
+    font-size: 16px;
+}
+
 .session-text {
     font-size: 11px;
 }
