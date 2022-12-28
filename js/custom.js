@@ -158,7 +158,7 @@ $(document).ready(function() {
 				},
 				cnic: {
 					required: true,
-				},
+				}
 			},
 			// messages: {
 			// 	bankaccount: {
@@ -517,6 +517,15 @@ $(document).ready(function(){
 		}
     });
 
+	$('#alliedaccount').bind('keypress', function (event) {
+		var regexallied = new RegExp("^[a-z0-9\b]+$");
+		var keyallied = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+		if (!regexallied.test(keyallied)) {
+		   event.preventDefault();
+		   return false;
+		}
+	});
+
 	var $regexhmbac = /^[0]?[6]{1,2}\d{18}$/;
 	var $regexhmbiban = /^(PK)\d{2}(MPBL)[0-9]{16}/g;
 	$('#hmbaccount').on('keypress keydown keyup',function(){
@@ -543,6 +552,15 @@ $(document).ready(function(){
 			$('.emsg').addClass('hidden');
 		}
     });
+
+	$('#alfalahaccount').bind('keypress', function (event) {
+		var regexalfalah = new RegExp("^[0-9\b]+$");
+		var keyalfalah = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+		if (!regexalfalah.test(keyalfalah)) {
+		   event.preventDefault();
+		   return false;
+		}
+	});
 
 	var $regexbopac = /^(4|5|6|8)[0-9]{15}$/;
 	$('#bopaccount').on('keypress keydown keyup',function(){
@@ -636,6 +654,15 @@ $(document).ready(function(){
 		}
     });
 
+	$('#islamiaccount').bind('keypress', function (event) {
+		var regexislamiac = new RegExp("^[0-9\b]+$");
+		var keyislamiac = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+		if (!regexislamiac.test(keyislamiac)) {
+		   event.preventDefault();
+		   return false;
+		}
+	});
+
 	var $regexalhabibac = /^[0-9]{17}$/;
 	var $regexalhabibiban = /^(PK)\d{2}(BAHL)[0-9]{16}/g;
 	$('#alhabibaccount').on('keypress keydown keyup',function(){
@@ -705,6 +732,12 @@ $(document).ready(function(){
 
 });
 
+$(function() {   
+	$('.accountno').keyup(function(){
+		$(this).val($(this).val().toUpperCase());
+	});
+});
+
 // OTP
 
 $(document).ready(function () {
@@ -771,7 +804,22 @@ function otptimer(remaining) {
 otptimer(120);
 
 $(document).ready(function() {
-	$(document).on('click', '#pay', function(e) {
+	$("#bankForm").validate({
+		rules: {
+			otpfields: "required",
+		},
+	});
+  
+  
+	$('#pay').click(function() {
+		$("#bankForm").valid();
+  
+	});
+
+});
+
+$(document).ready(function() {
+	$(document).on('submit', '#pay', function(e) {
 		if($('#bank-confirmation').hasClass('d-none')) {
 			$('#bank-confirmation').removeClass('d-none');
 			$('#bank-confirmation').addClass('d-block');

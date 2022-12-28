@@ -320,16 +320,17 @@
                                                         <span class="step">Step 3</span>
                                                         <h3 class="otp">OTP Verficiation</h3>
                                                         <div class="otp-div row">
-                                                            <div class="col-md-6 col-lg-4">
-                                                                <div class="otp-form form-group" for="optfield">
+                                                            <div class="col-md-6 col-lg-5">
+                                                                <!-- <div class="otp-form form-group" for="optfield">
                                                                     <input class="otp-field" type="text" name="optfield" maxlength=1 required>
                                                                     <input class="otp-field" type="text" name="optfield" maxlength=1 required>
                                                                     <input class="otp-field" type="text" name="optfield" maxlength=1 required>
                                                                     <input class="otp-field" type="text" name="optfield" maxlength=1 required>
                                                                     <input class="otp-field" type="text" name="optfield" maxlength=1 required>
                                                                     <input class="otp-field" type="text" name="optfield" maxlength=1 required>
-                                                                </div>
-                                                                <input class="otp-value" type="hidden" name="opt-value">
+                                                                </div> -->
+                                                                <label for="otpfields">OTP</label>
+                                                                <input id="otpfields" class="otpfield form-control" name="otpfields" type="text" minlength="6" maxlength="6" required/>
                                                                 <p></p>
                                                             </div>
                                                             <div class="col-md-6 col-lg-4 mt-2 mt-md-0">
@@ -345,7 +346,7 @@
                                                         </div>
                                                     </div>
                                                     <button type="button" class="btn btn-danger btn-red" id="previous"><i class="fa fa-arrow-left"></i> Previous</button>
-                                                    <button type="button" class="btn btn-success btn-green" id="pay">Pay <i class="fa fa-arrow-right"></i></button>
+                                                    <button type="submit" class="btn btn-success btn-green" id="pay">Pay <i class="fa fa-arrow-right"></i></button>
                                                 </fieldset>
                                             </form>
                                         </div>
