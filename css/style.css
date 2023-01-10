@@ -459,20 +459,6 @@ label.error {
     width: 100%;
 }
 
-/* .otpfield {
-    padding-left: 15px;
-    letter-spacing: 40px;
-    border: 0;
-    background-image: linear-gradient(to left, black 70%, rgba(255,255,255,0) 0%);
-    background-position: bottom;
-    background-size: 50px 1px;
-    background-repeat: repeat-x;
-    background-position-x: 35px;
-    background-color: transparent;
-    width: 300px;
-    outline: none;
-} */
-
 /* Thank You Card */
 
 .thankyou-card {

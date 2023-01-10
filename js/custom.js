@@ -819,7 +819,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-	$(document).on('submit', '#pay', function(e) {
+	$(document).on('button', '#pay', function(e) {
 		if($('#bank-confirmation').hasClass('d-none')) {
 			$('#bank-confirmation').removeClass('d-none');
 			$('#bank-confirmation').addClass('d-block');
